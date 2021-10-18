@@ -9,21 +9,39 @@
 /* Begin PBXBuildFile section */
 		AB097444271D69B2005D9037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097443271D69B2005D9037 /* AppDelegate.swift */; };
 		AB097446271D69B2005D9037 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097445271D69B2005D9037 /* SceneDelegate.swift */; };
-		AB097448271D69B2005D9037 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097447271D69B2005D9037 /* ViewController.swift */; };
+		AB097448271D69B2005D9037 /* BirdcallMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097447271D69B2005D9037 /* BirdcallMapViewController.swift */; };
 		AB09744B271D69B2005D9037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB097449271D69B2005D9037 /* Main.storyboard */; };
 		AB09744D271D69B3005D9037 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB09744C271D69B3005D9037 /* Assets.xcassets */; };
 		AB097450271D69B3005D9037 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB09744E271D69B3005D9037 /* LaunchScreen.storyboard */; };
+		AB09745C271D6F15005D9037 /* Birdcalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB09745A271D6F15005D9037 /* Birdcalls.xcdatamodeld */; };
+		AB09745E271D7931005D9037 /* MKBirdcallAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09745D271D7931005D9037 /* MKBirdcallAnnotation.swift */; };
+		AB097460271D7C2D005D9037 /* MapState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09745F271D7C2D005D9037 /* MapState.swift */; };
+		AB097462271D7CCD005D9037 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097461271D7CCD005D9037 /* DataController.swift */; };
+		AB097467271D7D6F005D9037 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097464271D7D6E005D9037 /* ErrorResponse.swift */; };
+		AB097468271D7D6F005D9037 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097465271D7D6F005D9037 /* FlickrClient.swift */; };
+		AB097469271D7D6F005D9037 /* PhotoURLsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */; };
+		AB09746B271D823C005D9037 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746A271D823C005D9037 /* DetailsViewController.swift */; };
+		AB09746D271D8255005D9037 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746C271D8255005D9037 /* RecordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB097440271D69B2005D9037 /* iBirdcallLibrarian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBirdcallLibrarian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB097443271D69B2005D9037 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB097445271D69B2005D9037 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB097447271D69B2005D9037 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB097447271D69B2005D9037 /* BirdcallMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdcallMapViewController.swift; sourceTree = "<group>"; };
 		AB09744A271D69B2005D9037 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB09744C271D69B3005D9037 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB09744F271D69B3005D9037 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB097451271D69B3005D9037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB09745B271D6F15005D9037 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AB09745D271D7931005D9037 /* MKBirdcallAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKBirdcallAnnotation.swift; sourceTree = "<group>"; };
+		AB09745F271D7C2D005D9037 /* MapState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapState.swift; sourceTree = "<group>"; };
+		AB097461271D7CCD005D9037 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		AB097464271D7D6E005D9037 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		AB097465271D7D6F005D9037 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
+		AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoURLsResponse.swift; sourceTree = "<group>"; };
+		AB09746A271D823C005D9037 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		AB09746C271D8255005D9037 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +74,56 @@
 		AB097442271D69B2005D9037 /* iBirdcallLibrarian */ = {
 			isa = PBXGroup;
 			children = (
+				AB097457271D6A2B005D9037 /* Model */,
+				AB097458271D6A3B005D9037 /* View */,
+				AB097459271D6A4A005D9037 /* Controller */,
 				AB097443271D69B2005D9037 /* AppDelegate.swift */,
 				AB097445271D69B2005D9037 /* SceneDelegate.swift */,
-				AB097447271D69B2005D9037 /* ViewController.swift */,
 				AB097449271D69B2005D9037 /* Main.storyboard */,
 				AB09744C271D69B3005D9037 /* Assets.xcassets */,
 				AB09744E271D69B3005D9037 /* LaunchScreen.storyboard */,
 				AB097451271D69B3005D9037 /* Info.plist */,
 			);
 			path = iBirdcallLibrarian;
+			sourceTree = "<group>";
+		};
+		AB097457271D6A2B005D9037 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB097463271D7D2B005D9037 /* Flickr */,
+				AB097461271D7CCD005D9037 /* DataController.swift */,
+				AB09745A271D6F15005D9037 /* Birdcalls.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB097458271D6A3B005D9037 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB09745F271D7C2D005D9037 /* MapState.swift */,
+				AB09745D271D7931005D9037 /* MKBirdcallAnnotation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB097459271D6A4A005D9037 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AB097447271D69B2005D9037 /* BirdcallMapViewController.swift */,
+				AB09746A271D823C005D9037 /* DetailsViewController.swift */,
+				AB09746C271D8255005D9037 /* RecordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AB097463271D7D2B005D9037 /* Flickr */ = {
+			isa = PBXGroup;
+			children = (
+				AB097464271D7D6E005D9037 /* ErrorResponse.swift */,
+				AB097465271D7D6F005D9037 /* FlickrClient.swift */,
+				AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */,
+			);
+			path = Flickr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +197,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB097448271D69B2005D9037 /* ViewController.swift in Sources */,
+				AB097462271D7CCD005D9037 /* DataController.swift in Sources */,
+				AB097460271D7C2D005D9037 /* MapState.swift in Sources */,
+				AB097448271D69B2005D9037 /* BirdcallMapViewController.swift in Sources */,
+				AB09746D271D8255005D9037 /* RecordViewController.swift in Sources */,
+				AB09746B271D823C005D9037 /* DetailsViewController.swift in Sources */,
 				AB097444271D69B2005D9037 /* AppDelegate.swift in Sources */,
 				AB097446271D69B2005D9037 /* SceneDelegate.swift in Sources */,
+				AB097469271D7D6F005D9037 /* PhotoURLsResponse.swift in Sources */,
+				AB09745E271D7931005D9037 /* MKBirdcallAnnotation.swift in Sources */,
+				AB09745C271D6F15005D9037 /* Birdcalls.xcdatamodeld in Sources */,
+				AB097467271D7D6F005D9037 /* ErrorResponse.swift in Sources */,
+				AB097468271D7D6F005D9037 /* FlickrClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +426,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AB09745A271D6F15005D9037 /* Birdcalls.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AB09745B271D6F15005D9037 /* Model.xcdatamodel */,
+			);
+			currentVersion = AB09745B271D6F15005D9037 /* Model.xcdatamodel */;
+			path = Birdcalls.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AB097438271D69B2005D9037 /* Project object */;
 }
