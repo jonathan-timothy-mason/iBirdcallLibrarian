@@ -13,6 +13,7 @@ import MapKit
 class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var recordButton: UIButton!
     
     var birdcalls: [Birdcall] = []
 
@@ -117,6 +118,12 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
             
             sender.state = .ended // Workaround to allow new long press straightaway.
         }
+    }
+    
+    /// Handle press of record button to show RecordViewController.
+    @IBAction func recordButtonPressed() {
+        let recordViewController = self.storyboard!.instantiateViewController(withIdentifier: "RecordViewController") as! RecordViewController
+        navigationController!.pushViewController(recordViewController, animated: true)
     }
 }
 
