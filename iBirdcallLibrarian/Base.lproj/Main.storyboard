@@ -77,8 +77,25 @@
                     <view key="view" contentMode="scaleToFill" id="Bw0-MG-Bp0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-bb-7an">
+                                <rect key="frame" x="314" y="780.5" width="80" height="61.5"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square.inset.filled" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopButtonPressed" destination="iuq-Uz-0jr" eventType="touchUpInside" id="TiR-6U-b4T"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Wcx-CB-PeL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="9tS-bb-7an" secondAttribute="trailing" constant="20" id="9ul-AR-t15"/>
+                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="9tS-bb-7an" secondAttribute="bottom" constant="20" id="bW6-7w-u1M"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIg-eL-ETe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -106,6 +123,7 @@
     </scenes>
     <resources>
         <image name="circle.inset.filled" catalog="system" width="128" height="121"/>
+        <image name="square.inset.filled" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

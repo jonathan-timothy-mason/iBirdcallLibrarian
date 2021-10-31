@@ -58,14 +58,25 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         birdcall.latitude = location.coordinate.latitude
         birdcall.longitude = location.coordinate.longitude
     }
+       
+    /// Handle press of stop button to end recording and initiate closing of screen, saving birdcall.
+    @IBAction func stopButtonPressed() {
+        navigationController!.popViewController(animated: true)
+    }
+    
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        
+        // Save birdcall when closing screen.
+        // From answer to "Execute action when back bar button of UINavigationController is pressed" by Iya:
+        //  https://stackoverflow.com/questions/27713747/execute-action-when-back-bar-button-of-uinavigationcontroller-is-pressed
+        if(parent == nil) {
+            save()
+        }
+    }
     
     /// Save to data store.
     func save() {
         DataController.shared.save()
-    }
-    
-    /// Handle press of stop button to end recording and save birdcall.
-    @IBAction func stopButtonPressed() {
-        
     }
 }
