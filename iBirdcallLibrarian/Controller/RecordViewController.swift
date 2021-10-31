@@ -12,14 +12,13 @@ import CoreLocation
 class RecordViewController: UIViewController, CLLocationManagerDelegate {
     var birdcall: Birdcall!
     let locationManager = CLLocationManager()
-    let startDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Create new birdcall.
         birdcall = Birdcall(context: DataController.shared.viewContext)
-        birdcall.date = startDate
+        birdcall.date = Date()
         birdcall.title = "New birdcall"
         
         // Attempt to begin process of receiving current location.
@@ -46,8 +45,9 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         guard let location = manager.location else {
             return
         }
-        guard startDate.timeIntervalSince(location.timestamp) <= (60 * 60) else {
-            print("Time of last location update at \(location.timestamp.description) is too long before start of recording at \(startDate.description).")
+        let currentDate = Date()
+        guard currentDate.timeIntervalSince(location.timestamp) <= (60 * 60) else {
+            print("Time of last location update at \(location.timestamp.description) is too long ago.")
             return
         }
         
