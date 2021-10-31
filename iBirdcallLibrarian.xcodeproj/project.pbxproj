@@ -22,6 +22,7 @@
 		AB097469271D7D6F005D9037 /* PhotoURLsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */; };
 		AB09746B271D823C005D9037 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746A271D823C005D9037 /* DetailsViewController.swift */; };
 		AB09746D271D8255005D9037 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746C271D8255005D9037 /* RecordViewController.swift */; };
+		ABED0D77272F3E3A00F3B971 /* BirdcallExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABED0D76272F3E3A00F3B971 /* BirdcallExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoURLsResponse.swift; sourceTree = "<group>"; };
 		AB09746A271D823C005D9037 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		AB09746C271D8255005D9037 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		ABED0D76272F3E3A00F3B971 /* BirdcallExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdcallExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				AB097463271D7D2B005D9037 /* Flickr */,
 				AB097461271D7CCD005D9037 /* DataController.swift */,
 				AB09745A271D6F15005D9037 /* Birdcalls.xcdatamodeld */,
+				ABED0D76272F3E3A00F3B971 /* BirdcallExtensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				AB097446271D69B2005D9037 /* SceneDelegate.swift in Sources */,
 				AB097469271D7D6F005D9037 /* PhotoURLsResponse.swift in Sources */,
 				AB09745E271D7931005D9037 /* MKBirdcallAnnotation.swift in Sources */,
+				ABED0D77272F3E3A00F3B971 /* BirdcallExtensions.swift in Sources */,
 				AB09745C271D6F15005D9037 /* Birdcalls.xcdatamodeld in Sources */,
 				AB097467271D7D6F005D9037 /* ErrorResponse.swift in Sources */,
 				AB097468271D7D6F005D9037 /* FlickrClient.swift in Sources */,

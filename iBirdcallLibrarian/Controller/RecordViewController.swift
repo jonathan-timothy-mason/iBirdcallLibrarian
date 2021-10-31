@@ -19,7 +19,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         // Create new birdcall.
         birdcall = Birdcall(context: DataController.shared.viewContext)
         birdcall.date = Date()
-        birdcall.title = "New birdcall"
+        birdcall.title = Birdcall.getDefaultTitle(birdcall.date!)
         
         // Attempt to begin process of receiving current location.
         setupLocationManager()
