@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SvA-ri-Mcz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SvA-ri-Mcz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Birdcall Map View Controller-->
+        <!--iBirdcall Librarian-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BirdcallMapViewController" customModule="iBirdcallLibrarian" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="312" y="108" width="82" height="61.5"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="circle.inset.filled" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="circle.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -45,7 +45,7 @@
                             <constraint firstItem="GdP-7r-nvZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ttF-AI-zfJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="J1o-8l-DFq"/>
+                    <navigationItem key="navigationItem" title="iBirdcall Librarian" id="J1o-8l-DFq"/>
                     <connections>
                         <outlet property="mapView" destination="GdP-7r-nvZ" id="P8k-2c-Fys"/>
                         <outlet property="recordButton" destination="F8Z-iG-pYs" id="nnF-Ac-tjq"/>
@@ -55,34 +55,51 @@
             </objects>
             <point key="canvasLocation" x="913.04347826086962" y="82.366071428571431"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Birdcall Details-->
         <scene sceneID="TOR-37-rm0">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" title="Details View Controller" id="P5q-0T-O3y" customClass="DetailsViewController" customModule="iBirdcallLibrarian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" title="Birdcall Details" id="P5q-0T-O3y" customClass="DetailsViewController" customModule="iBirdcallLibrarian" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k0i-AY-F2c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWK-7K-j17">
+                                <rect key="frame" x="326.5" y="780.5" width="67.5" height="61.5"/>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopButtonPressed" destination="iuq-Uz-0jr" eventType="touchUpInside" id="b5g-2M-8EU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VFs-3F-Oqh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VFs-3F-Oqh" firstAttribute="bottom" secondItem="ZWK-7K-j17" secondAttribute="bottom" constant="20" id="N1i-0Y-nRi"/>
+                            <constraint firstAttribute="trailing" secondItem="ZWK-7K-j17" secondAttribute="trailing" constant="20" id="TXv-yR-Fgp"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2B-fR-BzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3" y="838"/>
         </scene>
-        <!--Record View Controller-->
+        <!--NOW Recording...-->
         <scene sceneID="RuF-SK-eST">
             <objects>
-                <viewController storyboardIdentifier="RecordViewController" title="Record View Controller" id="iuq-Uz-0jr" customClass="RecordViewController" customModule="iBirdcallLibrarian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordViewController" title="NOW Recording..." id="iuq-Uz-0jr" customClass="RecordViewController" customModule="iBirdcallLibrarian" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bw0-MG-Bp0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-bb-7an">
-                                <rect key="frame" x="314" y="780.5" width="80" height="61.5"/>
+                                <rect key="frame" x="319.5" y="780.5" width="74.5" height="61.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="square.inset.filled" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="stop.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -122,10 +139,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circle.inset.filled" catalog="system" width="128" height="121"/>
-        <image name="square.inset.filled" catalog="system" width="128" height="114"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="stop.fill" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
