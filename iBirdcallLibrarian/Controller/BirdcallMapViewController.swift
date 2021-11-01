@@ -65,6 +65,8 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
             let longitude = CLLocationDegrees(birdcall.longitude)
             let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let annotation = MKBirdcallAnnotation(birdcall)
+            annotation.title = birdcall.title
+            annotation.subtitle = birdcall.species
             annotation.coordinate = coordinates
             annotations.append(annotation)
         }
@@ -79,8 +81,9 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: BirdcallMapViewController.pinReuseId) as? MKPinAnnotationView
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: BirdcallMapViewController.pinReuseId)
-            pinView!.canShowCallout = false
+            pinView!.canShowCallout = true
             pinView!.pinTintColor = .blue
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
             pinView!.annotation = annotation
@@ -90,11 +93,17 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // Display details of selected birdcall.
-        if let annotation = view.annotation as? MKBirdcallAnnotation {
-            let detailsViewController = self.storyboard!.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-            detailsViewController.birdcall = annotation.birdcall
-            navigationController!.pushViewController(detailsViewController, animated: true)
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // Handle press of callout to display details of selected birdcall.
+        if control == view.rightCalloutAccessoryView {
+            if let annotation = view.annotation as? MKBirdcallAnnotation {
+                let detailsViewController = self.storyboard!.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                detailsViewController.birdcall = annotation.birdcall
+                navigationController!.pushViewController(detailsViewController, animated: true)
+            }
         }
     }
     
