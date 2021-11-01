@@ -71,6 +71,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="playBirdcall" destination="P5q-0T-O3y" eventType="touchUpInside" id="Sdc-3X-pvX"/>
                                     <action selector="stopButtonPressed" destination="iuq-Uz-0jr" eventType="touchUpInside" id="b5g-2M-8EU"/>
                                 </connections>
                             </button>

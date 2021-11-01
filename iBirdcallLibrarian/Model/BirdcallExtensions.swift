@@ -8,8 +8,30 @@
 import Foundation
 
 extension Birdcall {
+    /// Create unique filename for birdcall recording.
+    static func createAudioFilename() -> String {
+        return UUID().uuidString + ".wav"
+    }
+    
+    /// Get URL of birdcall recording.
+    var audioFilenameURL: URL {
+        guard let audioFilename = self.audioFilename else {
+            fatalError("Audio filename is empty whilst attempting to get URL.")
+        }
+        
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let pathArray = [dirPath, audioFilename]
+        
+        if let filePath = URL(string: pathArray.joined(separator: "/")) {
+            return filePath
+        }
+        else {
+            fatalError("Could not create URL for audio filename \(audioFilename).")
+        }
+    }
+    
     /// Get default birdcall title based upon whether date it is morning, afternoon, evening or night.
-    /// - Parameter date: date at which birdcall was recorded.
+    /// - Parameter date: Date at which birdcall was recorded.
     /// - Returns: Default title.
     static func getDefaultTitle(_ date: Date) -> String {
         // From "Get hours, minutes and seconds from Date with Swift" by Darren:
