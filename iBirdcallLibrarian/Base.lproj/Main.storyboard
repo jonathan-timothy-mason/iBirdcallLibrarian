@@ -107,18 +107,34 @@
                                     <action selector="stopButtonPressed" destination="iuq-Uz-0jr" eventType="touchUpInside" id="TiR-6U-b4T"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON-AIR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhT-1D-FbF">
+                                <rect key="frame" x="82" y="398" width="250" height="100"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Fwy-8x-nyF"/>
+                                    <constraint firstAttribute="width" constant="250" id="cN4-5g-fn5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wcx-CB-PeL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="9tS-bb-7an" secondAttribute="trailing" constant="20" id="9ul-AR-t15"/>
-                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="9tS-bb-7an" secondAttribute="bottom" constant="20" id="bW6-7w-u1M"/>
+                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="9tS-bb-7an" secondAttribute="bottom" constant="20" id="K5y-dx-34h"/>
+                            <constraint firstItem="WhT-1D-FbF" firstAttribute="centerX" secondItem="Bw0-MG-Bp0" secondAttribute="centerX" id="VZW-pq-TUo"/>
+                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="9tS-bb-7an" secondAttribute="trailing" constant="20" id="XTY-ay-81O"/>
+                            <constraint firstItem="WhT-1D-FbF" firstAttribute="centerY" secondItem="Bw0-MG-Bp0" secondAttribute="centerY" id="ozK-KR-Xgq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="onAir" destination="WhT-1D-FbF" id="Ca6-8h-b8K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIg-eL-ETe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="-635"/>
+            <point key="canvasLocation" x="2.8985507246376816" y="-635.49107142857144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VRC-nL-r8W">

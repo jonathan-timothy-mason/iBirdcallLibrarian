@@ -15,6 +15,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
+    @IBOutlet weak var onAir: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,24 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         
         // Start recording.
         startRecording()
+        
+        // Flash ON-AIR label.
+        flashOnAir()
+    }
+    
+    /// Flash ON-AIR label.
+    /// - Note: From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
+    /// https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
+    func flashOnAir() {
+        UIView.animate(withDuration: 1) {
+            self.onAir.alpha = 0
+        } completion: { _ in
+            UIView.animate(withDuration: 1) {
+                self.onAir.alpha = 1
+            } completion: { _ in
+                self.flashOnAir()
+            }
+        }
     }
     
     /// Attempt to begin process of receiving current location.
