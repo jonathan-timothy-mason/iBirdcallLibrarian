@@ -16,6 +16,8 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     @IBOutlet weak var onAir: UILabel!
+    @IBOutlet weak var titleOfBirdcall: UILabel!
+    @IBOutlet weak var dateAndTime: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,10 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         
         // Flash ON-AIR label.
         flashOnAir()
+        
+        // Show details of birdcall.
+        titleOfBirdcall.text = birdcall.title
+        dateAndTime.text = birdcall.date?.formatted()
     }
     
     /// Flash ON-AIR label.
