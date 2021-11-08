@@ -22,6 +22,7 @@
 		AB097469271D7D6F005D9037 /* PhotoURLsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */; };
 		AB09746B271D823C005D9037 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746A271D823C005D9037 /* DetailsViewController.swift */; };
 		AB09746D271D8255005D9037 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746C271D8255005D9037 /* RecordViewController.swift */; };
+		AB9085BE273986AA005D7ADD /* ControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9085BD273986AA005D7ADD /* ControllerHelpers.swift */; };
 		ABED0D77272F3E3A00F3B971 /* BirdcallExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABED0D76272F3E3A00F3B971 /* BirdcallExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoURLsResponse.swift; sourceTree = "<group>"; };
 		AB09746A271D823C005D9037 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		AB09746C271D8255005D9037 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		AB9085BD273986AA005D7ADD /* ControllerHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerHelpers.swift; sourceTree = "<group>"; };
 		ABED0D76272F3E3A00F3B971 /* BirdcallExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdcallExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				AB097447271D69B2005D9037 /* BirdcallMapViewController.swift */,
 				AB09746A271D823C005D9037 /* DetailsViewController.swift */,
 				AB09746C271D8255005D9037 /* RecordViewController.swift */,
+				AB9085BD273986AA005D7ADD /* ControllerHelpers.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB097462271D7CCD005D9037 /* DataController.swift in Sources */,
+				AB9085BE273986AA005D7ADD /* ControllerHelpers.swift in Sources */,
 				AB097460271D7C2D005D9037 /* MapState.swift in Sources */,
 				AB097448271D69B2005D9037 /* BirdcallMapViewController.swift in Sources */,
 				AB09746D271D8255005D9037 /* RecordViewController.swift in Sources */,

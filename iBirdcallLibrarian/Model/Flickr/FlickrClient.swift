@@ -16,16 +16,24 @@ class FlickrClient {
         static let baseURL = "https://www.flickr.com/services/rest/?method=flickr.photos.search"
         static let apiKey = "20f97d04d53f5fed2ccbf8c5f5ceef23"
 
-        case getPhotoURLsForLocation(Int, Double, Double)
+        case getPhotoURLsForText(Int, String)
         
         /// Construct endpoint according to current case.
         /// - Returns: Endpoint URL as string.
         func constructURL() -> String {
             switch(self) {
-            case .getPhotoURLsForLocation(let page, let latitude, let longitude):
-                // extras=url_t: include URL for thumbnail-sized photo (100w x 75h). (https://www.flickr.com/services/api/flickr.photos.getSizes.html).
+            case .getPhotoURLsForText(let page, let text):
+                if text.isEmpty {
+                    fatalError("Specified search text is empty whilst attempting to download image.")
+                }
+                
+                // From answer to "Replace occurrences of space in URL" by Raj:
+                // https://stackoverflow.com/questions/3439853/replace-occurrences-of-space-in-url
+                let textWithoutSpaces = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                
+                // extras=url_q: include URL for large square-sized photo (150w x 150h). (https://www.flickr.com/services/api/flickr.photos.getSizes.html).
                 // nojsoncallback=1: exclude top-level function wrapper from JSON response (https://www.flickr.com/services/api/response.json.html).
-            return "\(Endpoints.baseURL)&api_key=\(Endpoints.apiKey)&lat=\(latitude)&lon=\(longitude)&page=\(page)&per_page=50&format=json&nojsoncallback=1&extras=url_t"
+                return "\(Endpoints.baseURL)&api_key=\(Endpoints.apiKey)&text=\(textWithoutSpaces)&page=\(page)&per_page=10&format=json&nojsoncallback=1&extras=url_q"
             }
         }
         
@@ -36,14 +44,13 @@ class FlickrClient {
         }
     }
 
-    /// Send GET request to retrieve photo URLs for supplied location from Flickr API.
+    /// Send GET request to retrieve photo URLs for supplied text from Flickr API.
     /// - Parameters:
     ///   - page: Page of photos to download.
-    ///   - latitude: Latitude of photo URLs to retrieve.
-    ///   - longitude: Longitude of photo URLs to retrieve.
+    ///   - text: Text relating to photo, whose URLs are to be to retrieved.
     ///   - completion: Function to call upon completion.
-    class func getPhotoURLsForLocation(page: Int, latitude: Double, longitude: Double, completion: @escaping (Int, [String], Error?) -> Void) {
-        taskForGetRequest(url: Endpoints.getPhotoURLsForLocation(page, latitude, longitude).url, responseType: PhotoURLsResponse.self) { response, error in
+    class func getPhotoURLsForText(page: Int, text: String, completion: @escaping (Int, [String], Error?) -> Void) {
+        taskForGetRequest(url: Endpoints.getPhotoURLsForText(page, text).url, responseType: PhotoURLsResponse.self) { response, error in
             if let response = response {
                 // Extract array of URLs from response.
                 // Based on "Transforming a Dictionary with Swift Map" of "How to Use Swift Map to Transforms Arrays, Sets, and Dictionaries" by Bart Jacobs:

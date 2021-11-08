@@ -29,6 +29,6 @@ struct PhotoURLResponseSubObject: Codable {
     
     enum CodingKeys: String, CodingKey {
         case title
-        case url = "url_t"
+        case url = "url_q"
     }
 }
