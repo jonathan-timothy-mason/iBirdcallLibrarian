@@ -15,6 +15,7 @@ import AVFoundation
 class DetailsViewController: UIViewController {
     var birdcall: Birdcall!
     var audioPlayer: AVAudioPlayer!
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleOfBirdcall: UITextField!
     @IBOutlet weak var species: UITextField!
     @IBOutlet weak var notes: UITextField!
