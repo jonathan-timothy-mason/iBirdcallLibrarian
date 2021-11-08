@@ -18,9 +18,16 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var onAir: UILabel!
     @IBOutlet weak var titleOfBirdcall: UILabel!
     @IBOutlet weak var dateAndTime: UILabel!
+    @IBOutlet weak var tick: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Hide back button, only allowing stop button to close screen, saving
+        // recording and indicating success.
+        // From answer to "Nav Back button not hidden" by Francisco G:
+        // https://knowledge.udacity.com/questions/286425
+        navigationItem.setHidesBackButton(true, animated: false)
         
         // Create new birdcall.
         birdcall = Birdcall(context: DataController.shared.viewContext)
@@ -47,12 +54,12 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     /// https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
     func flashOnAir() {
         UIView.animate(withDuration: 1) {
-            self.onAir.alpha = 0
+            self.onAir.alpha = 0 // Fade out
         } completion: { _ in
             UIView.animate(withDuration: 1) {
-                self.onAir.alpha = 1
+                self.onAir.alpha = 1 // Fade in
             } completion: { _ in
-                self.flashOnAir()
+                self.flashOnAir() // Repeat
             }
         }
     }
@@ -114,20 +121,24 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
        
-    /// Handle press of stop button to end recording and initiate closing of screen, saving birdcall.
+    /// Handle press of stop button to end recording and save birdcall, closing screen after indicating success.
     @IBAction func stopButtonPressed() {
-        navigationController!.popViewController(animated: true)
-    }
-    
-    override func willMove(toParent parent: UIViewController?) {
-        super.willMove(toParent: parent)
-        
-        // Save birdcall when closing screen.
-        // From answer to "Execute action when back bar button of UINavigationController
-        // is pressed" by Iya:
-        // https://stackoverflow.com/questions/27713747/execute-action-when-back-bar-button-of-uinavigationcontroller-is-pressed
-        if(parent == nil) {
-            stopRecording()
+        stopRecording()
+
+        // From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
+        // https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
+        tick.isHidden = false
+        onAir.isHidden = true
+        tick.alpha = 0
+        UIView.animate(withDuration: 0.25) {
+            self.tick.alpha = 1 // Fade in to show success.
+        } completion: { _ in
+            // Allow user to see success image for a period before closing screen.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                // From answer to "How to create a delay in Swift?" by Naresh:
+                // https://stackoverflow.com/questions/27517632/how-to-create-a-delay-in-swift
+                self.navigationController!.popViewController(animated: true)
+            }
         }
     }
     
