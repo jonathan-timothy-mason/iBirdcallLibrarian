@@ -16,13 +16,13 @@ class FlickrClient {
         static let baseURL = "https://www.flickr.com/services/rest/?method=flickr.photos.search"
         static let apiKey = "20f97d04d53f5fed2ccbf8c5f5ceef23"
 
-        case getPhotoURLsForText(Int, String)
+        case getPhotoURLsForText(String)
         
         /// Construct endpoint according to current case.
         /// - Returns: Endpoint URL as string.
         func constructURL() -> String {
             switch(self) {
-            case .getPhotoURLsForText(let page, let text):
+            case .getPhotoURLsForText(let text):
                 if text.isEmpty {
                     fatalError("Specified search text is empty whilst attempting to download image.")
                 }
@@ -33,7 +33,7 @@ class FlickrClient {
                 
                 // extras=url_q: include URL for large square-sized photo (150w x 150h). (https://www.flickr.com/services/api/flickr.photos.getSizes.html).
                 // nojsoncallback=1: exclude top-level function wrapper from JSON response (https://www.flickr.com/services/api/response.json.html).
-                return "\(Endpoints.baseURL)&api_key=\(Endpoints.apiKey)&text=\(textWithoutSpaces)&page=\(page)&per_page=10&format=json&nojsoncallback=1&extras=url_q"
+                return "\(Endpoints.baseURL)&api_key=\(Endpoints.apiKey)&text=\(textWithoutSpaces)&tags=bird&page=1&per_page=100&format=json&nojsoncallback=1&extras=url_q"
             }
         }
         
@@ -46,21 +46,20 @@ class FlickrClient {
 
     /// Send GET request to retrieve photo URLs for supplied text from Flickr API.
     /// - Parameters:
-    ///   - page: Page of photos to download.
     ///   - text: Text relating to photo, whose URLs are to be to retrieved.
     ///   - completion: Function to call upon completion.
-    class func getPhotoURLsForText(page: Int, text: String, completion: @escaping (Int, [String], Error?) -> Void) {
-        taskForGetRequest(url: Endpoints.getPhotoURLsForText(page, text).url, responseType: PhotoURLsResponse.self) { response, error in
+    class func getPhotoURLsForText(text: String, completion: @escaping ([String], Error?) -> Void) {
+        taskForGetRequest(url: Endpoints.getPhotoURLsForText(text).url, responseType: PhotoURLsResponse.self) { response, error in
             if let response = response {
                 // Extract array of URLs from response.
                 // Based on "Transforming a Dictionary with Swift Map" of "How to Use Swift Map to Transforms Arrays, Sets, and Dictionaries" by Bart Jacobs:
                 // https://cocoacasts.com/swift-essentials-1-how-to-use-swift-map-to-transforms-arrays-sets-and-dictionaries
                 let urls = response.photos.photo.map { $0.url }.sorted()
                 
-                completion(response.photos.pages, urls, nil)
+                completion(urls, nil)
             }
             else {
-                completion(0, [], error)
+                completion([], error)
             }
         }
     }

@@ -26,6 +26,13 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up tap handler for image.
+        // From answer to "How to assign an action for UIImageView object in Swift" by Aseider:
+        // https://stackoverflow.com/questions/27880607/how-to-assign-an-action-for-uiimageview-object-in-swift
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(tapGestureRecognizer)
+        
         // Show details of birdcall.
         titleOfBirdcall.text = birdcall.title
         species.text = birdcall.species
@@ -34,7 +41,7 @@ class DetailsViewController: UIViewController {
         latAndLong.text = "Lat \(String(format: "%.2f", birdcall.latitude)), Long \(String(format: "%.2f", birdcall.longitude))" // From "Formatting numbers in Swift" by John Sundell: https://swiftbysundell.com/articles/formatting-numbers-in-swift/
         
         //  Load photo for birdcall from data store, if any, otherwise, Flickr.
-        loadPhotoForBirdcall();
+        loadPhotoForBirdcall()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,40 +71,15 @@ class DetailsViewController: UIViewController {
     func loadPhotoForBirdcallFromFlickr() {
         startIndicatingActivity()
         
-        // Get number of pages for species.
-        FlickrClient.getPhotoURLsForText(page: 1, text: birdcall.species!, completion: handleResponseToGetNumberOfPages)
+        // Get photo URLs for species.
+        FlickrClient.getPhotoURLsForText(text: birdcall.species!, completion: handleResponseToGetPhotoURLs)
     }
     
-    /// Handle response to get number of pages for species.
+    /// Handle response to get photo URLs for species.
     /// - Parameters:
-    ///   - pages: Number of pages for species.
-    ///   - urls: URLs of first page for species (not used).
+    ///   - urls: URLs for species.
     ///   - error: Error, if there was a problem.
-    func handleResponseToGetNumberOfPages(pages: Int, urls: [String], error: Error?) {
-        stopIndicatingActivity()
-        
-        guard error == nil else {
-            ControllerHelpers.showMessage(parent: self, caption: "Flckr Error", introMessage: "There was a problem downloading number of pages of photo URLs from Flickr.", error: error)
-            return
-        }
-        
-        if urls.count > 0 {
-            startIndicatingActivity()
-            
-            // Randomisation based on answer to question "The randomization limits
-            // are still wrong" by Spiros R:
-            // https://knowledge.udacity.com/questions/689534
-            // Get random page of photo URLs for travel location.
-            FlickrClient.getPhotoURLsForText(page: Int.random(in: 0...pages), text: birdcall.species!, completion: handleResponseToGetPhotos)
-        }
-    }
-    
-    /// Handle response to get random page of photo URLs for species.
-    /// - Parameters:
-    ///   - pages: Number of pages for species (not used).
-    ///   - urls: URLs of random page for species.
-    ///   - error: Error, if there was a problem.
-    func handleResponseToGetPhotos(pages: Int, urls: [String], error: Error?) {
+    func handleResponseToGetPhotoURLs(urls: [String], error: Error?) {
         stopIndicatingActivity()
         
         guard error == nil else {
@@ -105,26 +87,40 @@ class DetailsViewController: UIViewController {
             return
         }
         
-        // ... and download actual one.
-        if urls.count > 0, let url = URL(string: urls[0]) {
-            FlickrClient.getPhoto(url: url) { photo, error in
-                if let photo = photo {
-                    // Set image of image view...
-                    self.image.image = photo
+        // Download image for random URL.
+        if urls.count > 0 {
+            // Randomisation based on answer to question "The randomization limits
+            // are still wrong" by Spiros R:
+            // https://knowledge.udacity.com/questions/689534
+            let randomIndex = Int.random(in: 0...urls.count - 1)
+            
+            if let url = URL(string: urls[randomIndex]) {
+                startIndicatingActivity()
+            
+                FlickrClient.getPhoto(url: url) { photo, error in
+                    self.stopIndicatingActivity()
                     
-                    // ...and data store.
-                    self.birdcall.photo = photo.pngData()
+                    guard error == nil else {
+                        ControllerHelpers.showMessage(parent: self, caption: "Flckr Error", introMessage: "There was a problem downloading photo from Flickr.", error: error)
+                        return
+                    }
+                    
+                    if let photo = photo {
+                        self.image.image = photo // Set image of image view...
+                        self.birdcall.photo = photo.pngData() // ...and data store.
+                    }
                 }
             }
         }
     }
     
     /// Indicate activity while photo URLs are being downloaded.
-    /// - Note: User prevented from editing species until download finished.
+    /// - Note: User prevented from editing species or tapping image until download finished.
     func startIndicatingActivity() {
         activityIndicator.startAnimating()
         image.isHidden = true
         species.isEnabled = false
+        image.isUserInteractionEnabled = false
     }
     
     /// Stop indicating activity.
@@ -132,6 +128,7 @@ class DetailsViewController: UIViewController {
         self.activityIndicator.stopAnimating()
         image.isHidden = false
         species.isEnabled = true
+        image.isUserInteractionEnabled = true
     }
     
     /// Handle press of button to play birdcall.
@@ -152,6 +149,12 @@ class DetailsViewController: UIViewController {
     /// https://stackoverflow.com/questions/28394933/how-do-i-check-when-a-uitextfield-changes
     @IBAction func speciesChanged() {
         birdcall.species = species.text
+        clearPhoto()
+        loadPhotoForBirdcall()
+    }
+        
+    /// Handle tap of image to download new photo.
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         clearPhoto()
         loadPhotoForBirdcall()
     }
