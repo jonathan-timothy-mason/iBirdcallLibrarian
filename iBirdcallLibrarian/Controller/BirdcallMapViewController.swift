@@ -65,8 +65,22 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
             let longitude = CLLocationDegrees(birdcall.longitude)
             let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let annotation = MKBirdcallAnnotation(birdcall)
-            annotation.title = birdcall.title
-            annotation.subtitle = birdcall.species
+            
+            // Include species in (annotation) title, otherwise (birdcall) title, otherwise
+            // question mark.
+            if let species = birdcall.species, !species.isEmpty {
+                annotation.title = species
+            }
+            else if let title = birdcall.title, !title.isEmpty {
+                annotation.title = title
+            }
+            else {
+                annotation.title = "?"
+            }
+            
+            // Include date and time as subtitle for convenience.
+            annotation.subtitle = birdcall.date?.formatted()
+            
             annotation.coordinate = coordinates
             annotations.append(annotation)
         }
@@ -93,7 +107,7 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
+        // ...
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
