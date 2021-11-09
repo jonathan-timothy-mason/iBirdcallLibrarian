@@ -102,6 +102,7 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
             if let annotation = view.annotation as? MKBirdcallAnnotation {
                 let detailsViewController = self.storyboard!.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
                 detailsViewController.birdcall = annotation.birdcall
+                detailsViewController.hidesBottomBarWhenPushed = true // Prevent tabs showing in new screen.
                 navigationController!.pushViewController(detailsViewController, animated: true)
             }
         }
@@ -132,6 +133,7 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
     /// Handle press of record button to show RecordViewController.
     @IBAction func recordButtonPressed() {
         let recordViewController = self.storyboard!.instantiateViewController(withIdentifier: "RecordViewController") as! RecordViewController
+        recordViewController.hidesBottomBarWhenPushed = true // Prevent tabs showing in new screen.
         navigationController!.pushViewController(recordViewController, animated: true)
     }
 }

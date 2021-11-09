@@ -63,12 +63,14 @@ class BirdcallTableViewController: UITableViewController {
         // Handle press of item to display details of selected birdcall.
         let detailsViewController = self.storyboard!.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         detailsViewController.birdcall = birdcalls[(indexPath as NSIndexPath).row]
+        detailsViewController.hidesBottomBarWhenPushed = true // Prevent tabs showing in new screen.
         navigationController!.pushViewController(detailsViewController, animated: true)
     }
 
     /// Handle press of record button to show RecordViewController.
     @IBAction func recordButtonPressed() {
         let recordViewController = self.storyboard!.instantiateViewController(withIdentifier: "RecordViewController") as! RecordViewController
+        recordViewController.hidesBottomBarWhenPushed = true // Prevent tabs showing in new screen.
         navigationController!.pushViewController(recordViewController, animated: true)
     }
 }
