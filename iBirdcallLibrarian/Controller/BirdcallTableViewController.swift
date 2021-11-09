@@ -15,15 +15,10 @@ class BirdcallTableViewController: UITableViewController {
     
     var birdcalls: [Birdcall] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Load birdcalls from data store and populate table view.
+        // Load birdcalls from data store and populate table.
         loadBirdcalls()
     }
     
@@ -50,29 +45,17 @@ class BirdcallTableViewController: UITableViewController {
         let birdcall = birdcalls[(indexPath as NSIndexPath).row]
         
         // Set text and image of cell.
-        /*
-        cell.textLabel?.text = "\(birdcall.getCaption())"
-        cell.detailTextLabel?.text = "\(birdcall.date!.formatted())"
-        if let photo = birdcall.photo {
-            cell.imageView?.image = UIImage(data: photo)
-        }
-        else {
-            cell.imageView?.image = UIImage(systemName: "doc.text.image")
-        }
-         */
-        
         cell.caption.text = "\(birdcall.getCaption())"
         cell.dateAndTime.text = "\(birdcall.date!.formatted())"
         if let photo = birdcall.photo {
             cell.photo.image = UIImage(data: photo)
+            cell.photo.contentMode = .scaleAspectFit
         }
         else {
             cell.photo.image = UIImage(systemName: "doc.text.image")
             cell.photo.contentMode = .center
-            cell.photo.
         }
         
-
         return cell
     }
     
