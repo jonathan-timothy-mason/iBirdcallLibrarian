@@ -51,4 +51,18 @@ extension Birdcall {
             return "Morning Birdcall"
         }
     }
+    
+    /// Get caption for birdcall, for use in map or table view.
+    /// - Note: Use species, otherwise title, otherwise question mark.
+    func getCaption() -> String {
+        if let species = self.species, !species.isEmpty {
+            return species
+        }
+        else if let title = self.title, !title.isEmpty {
+            return title
+        }
+        else {
+            return "?"
+        }
+    }
 }

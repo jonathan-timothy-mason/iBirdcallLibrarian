@@ -108,6 +108,7 @@ class DetailsViewController: UIViewController {
                     if let photo = photo {
                         self.image.image = photo // Set image of image view...
                         self.birdcall.photo = photo.pngData() // ...and data store.
+                        DataController.shared.save()
                     }
                 }
             }
