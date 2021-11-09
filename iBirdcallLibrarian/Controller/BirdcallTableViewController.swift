@@ -46,15 +46,32 @@ class BirdcallTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BirdcallCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BirdcallCell") as! BirdcallCell
         let birdcall = birdcalls[(indexPath as NSIndexPath).row]
         
         // Set text and image of cell.
+        /*
         cell.textLabel?.text = "\(birdcall.getCaption())"
         cell.detailTextLabel?.text = "\(birdcall.date!.formatted())"
         if let photo = birdcall.photo {
             cell.imageView?.image = UIImage(data: photo)
         }
+        else {
+            cell.imageView?.image = UIImage(systemName: "doc.text.image")
+        }
+         */
+        
+        cell.caption.text = "\(birdcall.getCaption())"
+        cell.dateAndTime.text = "\(birdcall.date!.formatted())"
+        if let photo = birdcall.photo {
+            cell.photo.image = UIImage(data: photo)
+        }
+        else {
+            cell.photo.image = UIImage(systemName: "doc.text.image")
+            cell.photo.contentMode = .center
+            cell.photo.
+        }
+        
 
         return cell
     }
