@@ -115,18 +115,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="X6x-CD-pTP"/>
                 </tableViewController>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ewe-MJ-2cz">
-                    <rect key="frame" x="0.0" y="0.0" width="82" height="61.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" systemColor="systemRedColor"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="circle.fill" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="recordButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Ep-wO-lmM"/>
-                    </connections>
-                </button>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4y-Dz-E67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="827.67857142857144"/>
