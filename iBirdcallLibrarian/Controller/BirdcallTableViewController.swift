@@ -9,9 +9,10 @@ import UIKit
 import MapKit
 
 /// Displays table of birdcalls.
-class BirdcallTableViewController: UITableViewController {
+class BirdcallTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     var birdcalls: [Birdcall] = []
 
@@ -35,11 +36,11 @@ class BirdcallTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return birdcalls.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BirdcallCell") as! BirdcallCell
         let birdcall = birdcalls[(indexPath as NSIndexPath).row]
@@ -59,7 +60,7 @@ class BirdcallTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Handle press of item to display details of selected birdcall.
         let detailsViewController = self.storyboard!.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         detailsViewController.birdcall = birdcalls[(indexPath as NSIndexPath).row]
