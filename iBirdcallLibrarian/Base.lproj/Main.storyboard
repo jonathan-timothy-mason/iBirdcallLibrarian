@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="913.04347826086962" y="82.366071428571431"/>
         </scene>
-        <!--Birdcall Table View Controller-->
+        <!--iBirdcall Librarian-->
         <scene sceneID="kJc-SS-xak">
             <objects>
                 <viewController id="PbG-7B-skf" customClass="BirdcallTableViewController" customModule="iBirdcallLibrarian" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,7 +148,7 @@
                             <constraint firstItem="opK-bY-RM5" firstAttribute="trailing" secondItem="j9A-vk-whD" secondAttribute="trailing" id="sWB-oe-dKP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="X96-mI-nvK"/>
+                    <navigationItem key="navigationItem" title="iBirdcall Librarian" id="X96-mI-nvK"/>
                     <connections>
                         <outlet property="tableView" destination="j9A-vk-whD" id="KO4-pi-aLf"/>
                     </connections>
