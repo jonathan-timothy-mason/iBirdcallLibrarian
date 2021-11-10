@@ -18,8 +18,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var onAir: UILabel!
     @IBOutlet weak var titleOfBirdcall: UILabel!
     @IBOutlet weak var dateAndTime: UILabel!
-    @IBOutlet weak var tick: UIImageView!
-    @IBOutlet weak var tickBacking: UIImageView!
+    @IBOutlet weak var thumbsUp: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +53,15 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     /// - Note: From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
     /// https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
     func flashOnAir() {
-        UIView.animate(withDuration: 1) {
-            self.onAir.alpha = 0 // Fade out
-        } completion: { _ in
+        if audioRecorder.isRecording {
             UIView.animate(withDuration: 1) {
-                self.onAir.alpha = 1 // Fade in
+                self.onAir.alpha = 0 // Fade out
             } completion: { _ in
-                self.flashOnAir() // Repeat
+                UIView.animate(withDuration: 1) {
+                    self.onAir.alpha = 1 // Fade in
+                } completion: { _ in
+                    self.flashOnAir() // Repeat
+                }
             }
         }
     }
@@ -128,15 +129,14 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
 
         // From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
         // https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
-        tick.isHidden = false
-        tickBacking.isHidden = false
-        onAir.isHidden = true
-        tick.alpha = 0
-        tickBacking.alpha = 0
+        onAir.text = "OFF-AIR"
+        thumbsUp.isHidden = false
+        onAir.alpha = 0
+        thumbsUp.alpha = 0
         UIView.animate(withDuration: 0.25) {
             // Fade in to show success.
-            self.tick.alpha = 1
-            self.tickBacking.alpha = 1
+            self.thumbsUp.alpha = 1
+            self.onAir.alpha = 1
         } completion: { _ in
             // Allow user to see success image for a period before closing screen.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
