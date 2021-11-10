@@ -19,6 +19,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var titleOfBirdcall: UILabel!
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var tick: UIImageView!
+    @IBOutlet weak var tickBacking: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,10 +129,14 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         // From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
         // https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
         tick.isHidden = false
+        tickBacking.isHidden = false
         onAir.isHidden = true
         tick.alpha = 0
+        tickBacking.alpha = 0
         UIView.animate(withDuration: 0.25) {
-            self.tick.alpha = 1 // Fade in to show success.
+            // Fade in to show success.
+            self.tick.alpha = 1
+            self.tickBacking.alpha = 1
         } completion: { _ in
             // Allow user to see success image for a period before closing screen.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {

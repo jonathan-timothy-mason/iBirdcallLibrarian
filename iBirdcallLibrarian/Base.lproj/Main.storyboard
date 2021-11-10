@@ -333,6 +333,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jSS-VN-fUj">
+                                <rect key="frame" x="100" y="144.5" width="214" height="617"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g3J-Q0-Ffo">
                                 <rect key="frame" x="100" y="144.5" width="214" height="617"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
@@ -341,7 +345,9 @@
                         <viewLayoutGuide key="safeArea" id="Wcx-CB-PeL"/>
                         <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="jSS-VN-fUj" secondAttribute="bottom" constant="100" id="5ey-WO-toK"/>
                             <constraint firstItem="g3J-Q0-Ffo" firstAttribute="top" secondItem="Wcx-CB-PeL" secondAttribute="top" constant="100" id="BNw-bA-Ln6"/>
+                            <constraint firstItem="jSS-VN-fUj" firstAttribute="top" secondItem="Wcx-CB-PeL" secondAttribute="top" constant="100" id="C5c-wK-rRH"/>
                             <constraint firstItem="g3J-Q0-Ffo" firstAttribute="leading" secondItem="Wcx-CB-PeL" secondAttribute="leading" constant="100" id="Erv-vd-LG3"/>
                             <constraint firstItem="4SS-Sh-Jyv" firstAttribute="leading" secondItem="Wcx-CB-PeL" secondAttribute="leading" constant="20" id="Fpt-nI-36U"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="9tS-bb-7an" secondAttribute="bottom" constant="20" id="K5y-dx-34h"/>
@@ -352,15 +358,18 @@
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="9tS-bb-7an" secondAttribute="trailing" constant="20" id="XTY-ay-81O"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="g3J-Q0-Ffo" secondAttribute="bottom" constant="100" id="e6L-0E-fSZ"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="nXI-to-f7Y" secondAttribute="bottom" constant="20" id="gZN-jJ-ywj"/>
+                            <constraint firstItem="jSS-VN-fUj" firstAttribute="leading" secondItem="Wcx-CB-PeL" secondAttribute="leading" constant="100" id="mw1-M8-oI5"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="4SS-Sh-Jyv" secondAttribute="trailing" constant="20" id="n8i-pt-ceD"/>
                             <constraint firstItem="WhT-1D-FbF" firstAttribute="centerY" secondItem="Bw0-MG-Bp0" secondAttribute="centerY" id="ozK-KR-Xgq"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="g3J-Q0-Ffo" secondAttribute="trailing" constant="100" id="p2v-Zp-bRz"/>
+                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="jSS-VN-fUj" secondAttribute="trailing" constant="100" id="slz-bi-3wk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dateAndTime" destination="nXI-to-f7Y" id="Lex-1O-3up"/>
                         <outlet property="onAir" destination="WhT-1D-FbF" id="Ca6-8h-b8K"/>
                         <outlet property="tick" destination="g3J-Q0-Ffo" id="dsv-Nf-Mqr"/>
+                        <outlet property="tickBacking" destination="jSS-VN-fUj" id="SeX-JR-h5J"/>
                         <outlet property="titleOfBirdcall" destination="4SS-Sh-Jyv" id="sg9-bP-cDU"/>
                     </connections>
                 </viewController>
