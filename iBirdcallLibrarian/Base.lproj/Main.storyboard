@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2B-fR-BzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821.7391304347827" y="-635.49107142857144"/>
+            <point key="canvasLocation" x="2731.8840579710145" y="-635.49107142857144"/>
         </scene>
         <!--NOW Recording...-->
         <scene sceneID="RuF-SK-eST">
@@ -322,7 +322,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SS-Sh-Jyv">
-                                <rect key="frame" x="20" y="64" width="374" height="30"/>
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -359,6 +359,13 @@
                             <constraint firstItem="WhT-1D-FbF" firstAttribute="centerY" secondItem="Bw0-MG-Bp0" secondAttribute="centerY" id="ozK-KR-Xgq"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="NOW Recording..." id="XT3-QM-Pgq">
+                        <barButtonItem key="leftBarButtonItem" title="Stop" image="stop.fill" catalog="system" id="tMD-pN-ZHh">
+                            <connections>
+                                <action selector="stopButtonPressed" destination="iuq-Uz-0jr" id="9nw-MY-xNA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateAndTime" destination="nXI-to-f7Y" id="Lex-1O-3up"/>
                         <outlet property="onAir" destination="WhT-1D-FbF" id="Ca6-8h-b8K"/>
@@ -368,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIg-eL-ETe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2.8985507246376816" y="-635.49107142857144"/>
+            <point key="canvasLocation" x="913.04347826086962" y="-635.49107142857144"/>
         </scene>
         <!--Map-->
         <scene sceneID="VRC-nL-r8W">
@@ -444,7 +451,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnf-9q-g4i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911.59420289855075" y="-635.49107142857144"/>
+            <point key="canvasLocation" x="1821.7391304347827" y="-635.49107142857144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RrV-Pt-Gkk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4v-5h-zxd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mIH-wI-n6X">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iuq-Uz-0jr" kind="relationship" relationship="rootViewController" id="uFc-zl-px5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L3Q-bE-jSW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2.8985507246376816" y="-635.49107142857144"/>
         </scene>
     </scenes>
     <resources>
