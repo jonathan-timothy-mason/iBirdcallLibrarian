@@ -32,10 +32,22 @@ class DataController {
     /// Save data store, logging any error.
     func save() {
         do {
-            try DataController.shared.viewContext.save()
+            try viewContext.save()
         }
         catch {
-            print(error.localizedDescription)
+            print("The following error occurred whilst attempting to save birdcall to data store: \(error.localizedDescription)")
+        }
+    }
+    
+    /// Delete birdcall from data store and its audio file from file system.
+    func delete(birdcall: Birdcall ) {
+        do {
+            try FileManager.default.removeItem(atPath: birdcall.audioFilenameURL.path)
+            viewContext.delete(birdcall)
+            save()
+        }
+        catch {
+            print("The following error occurred whilst attempting to delete birdcall \(error.localizedDescription)")
         }
     }
 }

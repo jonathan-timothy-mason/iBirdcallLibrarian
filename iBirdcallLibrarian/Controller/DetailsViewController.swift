@@ -169,7 +169,7 @@ class DetailsViewController: UIViewController {
     
     /// Handle press of delete button to delete birdcall.
     @IBAction func deleteBirdcall() {
-        DataController.shared.viewContext.delete(birdcall)
+        DataController.shared.delete(birdcall: birdcall)
         
         // From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
         // https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
