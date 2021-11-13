@@ -50,7 +50,13 @@
                             <constraint firstItem="GdP-7r-nvZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ttF-AI-zfJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="iBirdcall Librarian" id="J1o-8l-DFq"/>
+                    <navigationItem key="navigationItem" title="iBirdcall Librarian" id="J1o-8l-DFq">
+                        <barButtonItem key="leftBarButtonItem" image="circle.fill" catalog="system" id="Z17-dS-4N8">
+                            <connections>
+                                <action selector="recordButtonPressed" destination="BYZ-38-t0r" id="2P5-LW-IH9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="GdP-7r-nvZ" id="P8k-2c-Fys"/>
                         <outlet property="recordButton" destination="F8Z-iG-pYs" id="nnF-Ac-tjq"/>
@@ -148,7 +154,13 @@
                             <constraint firstItem="opK-bY-RM5" firstAttribute="trailing" secondItem="j9A-vk-whD" secondAttribute="trailing" id="sWB-oe-dKP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="iBirdcall Librarian" id="X96-mI-nvK"/>
+                    <navigationItem key="navigationItem" title="iBirdcall Librarian" id="X96-mI-nvK">
+                        <barButtonItem key="leftBarButtonItem" image="circle.fill" catalog="system" id="Goc-rV-1mS">
+                            <connections>
+                                <action selector="recordButtonPressed" destination="PbG-7B-skf" id="ifd-7t-092"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="j9A-vk-whD" id="KO4-pi-aLf"/>
                     </connections>
@@ -228,14 +240,6 @@
                                     <constraint firstAttribute="height" constant="150" id="wUX-jg-9DH"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xDe-25-VIo">
-                                <rect key="frame" x="346" y="65.5" width="35" height="35"/>
-                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="BLk-ZD-gRu"/>
-                                    <constraint firstAttribute="height" constant="35" id="MBs-V7-nH8"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VFs-3F-Oqh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -254,12 +258,10 @@
                             <constraint firstAttribute="trailing" secondItem="ZWK-7K-j17" secondAttribute="trailing" constant="20" id="TXv-yR-Fgp"/>
                             <constraint firstItem="VFs-3F-Oqh" firstAttribute="trailing" secondItem="60b-MP-5qD" secondAttribute="trailing" constant="20" id="YKx-wX-Ipv"/>
                             <constraint firstItem="P41-XC-1cC" firstAttribute="leading" secondItem="k0i-AY-F2c" secondAttribute="leading" constant="20" id="Z8s-BO-4wY"/>
-                            <constraint firstItem="VFs-3F-Oqh" firstAttribute="trailing" secondItem="xDe-25-VIo" secondAttribute="trailing" constant="33" id="bRC-XF-iV2"/>
                             <constraint firstItem="60b-MP-5qD" firstAttribute="leading" secondItem="VFs-3F-Oqh" secondAttribute="leading" constant="20" id="dAa-7I-ktY"/>
                             <constraint firstItem="60b-MP-5qD" firstAttribute="top" secondItem="P41-XC-1cC" secondAttribute="bottom" constant="10" id="hHh-7O-J7i"/>
                             <constraint firstItem="t4P-40-xKy" firstAttribute="top" secondItem="VFs-3F-Oqh" secondAttribute="top" constant="20" id="iNc-Yt-5ov"/>
                             <constraint firstItem="VFs-3F-Oqh" firstAttribute="trailing" secondItem="tAR-9V-VOg" secondAttribute="trailing" constant="20" id="qeM-g4-PjC"/>
-                            <constraint firstItem="xDe-25-VIo" firstAttribute="top" secondItem="VFs-3F-Oqh" secondAttribute="top" constant="-22" id="syz-Cc-Rb4"/>
                             <constraint firstItem="P41-XC-1cC" firstAttribute="top" secondItem="O5x-j5-tgB" secondAttribute="bottom" constant="10" id="vic-fq-OwN"/>
                             <constraint firstItem="VFs-3F-Oqh" firstAttribute="trailing" secondItem="P41-XC-1cC" secondAttribute="trailing" constant="20" id="wEf-9a-HY7"/>
                             <constraint firstItem="O5x-j5-tgB" firstAttribute="leading" secondItem="VFs-3F-Oqh" secondAttribute="leading" constant="20" id="zud-v8-gFd"/>
@@ -279,7 +281,6 @@
                         <outlet property="latAndLong" destination="60b-MP-5qD" id="Fj4-Xv-pj9"/>
                         <outlet property="notes" destination="O5x-j5-tgB" id="9aW-88-qyQ"/>
                         <outlet property="species" destination="Rho-eI-Fb5" id="1Oj-kr-nPe"/>
-                        <outlet property="thumbsUp" destination="xDe-25-VIo" id="LHq-yK-Lq9"/>
                         <outlet property="titleOfBirdcall" destination="tAR-9V-VOg" id="aLJ-mO-dFn"/>
                     </connections>
                 </viewController>
@@ -333,25 +334,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g3J-Q0-Ffo">
-                                <rect key="frame" x="319" y="766.5" width="35" height="35"/>
-                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="cg8-gV-aqY"/>
-                                    <constraint firstAttribute="width" constant="35" id="drD-cJ-Mb0"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wcx-CB-PeL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="g3J-Q0-Ffo" secondAttribute="trailing" constant="60" id="6sP-Yk-b7v"/>
                             <constraint firstItem="4SS-Sh-Jyv" firstAttribute="leading" secondItem="Wcx-CB-PeL" secondAttribute="leading" constant="20" id="Fpt-nI-36U"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="9tS-bb-7an" secondAttribute="bottom" constant="20" id="K5y-dx-34h"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="nXI-to-f7Y" secondAttribute="trailing" constant="20" id="Lzz-2M-E1x"/>
                             <constraint firstItem="4SS-Sh-Jyv" firstAttribute="top" secondItem="Wcx-CB-PeL" secondAttribute="top" constant="20" id="ObV-rf-dNe"/>
                             <constraint firstItem="nXI-to-f7Y" firstAttribute="leading" secondItem="Wcx-CB-PeL" secondAttribute="leading" constant="20" id="SVp-v1-Y8g"/>
-                            <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="g3J-Q0-Ffo" secondAttribute="bottom" constant="60" id="Sw6-at-dmj"/>
                             <constraint firstItem="WhT-1D-FbF" firstAttribute="centerX" secondItem="Bw0-MG-Bp0" secondAttribute="centerX" id="VZW-pq-TUo"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="trailing" secondItem="9tS-bb-7an" secondAttribute="trailing" constant="20" id="XTY-ay-81O"/>
                             <constraint firstItem="Wcx-CB-PeL" firstAttribute="bottom" secondItem="nXI-to-f7Y" secondAttribute="bottom" constant="20" id="gZN-jJ-ywj"/>
@@ -369,7 +360,6 @@
                     <connections>
                         <outlet property="dateAndTime" destination="nXI-to-f7Y" id="Lex-1O-3up"/>
                         <outlet property="onAir" destination="WhT-1D-FbF" id="Ca6-8h-b8K"/>
-                        <outlet property="thumbsUp" destination="g3J-Q0-Ffo" id="dsv-Nf-Mqr"/>
                         <outlet property="titleOfBirdcall" destination="4SS-Sh-Jyv" id="sg9-bP-cDU"/>
                     </connections>
                 </viewController>
@@ -475,7 +465,6 @@
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="doc.text.image" catalog="system" width="115" height="128"/>
-        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
@@ -489,9 +478,6 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

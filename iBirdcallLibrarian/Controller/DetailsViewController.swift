@@ -22,7 +22,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var notes: UITextField!
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var latAndLong: UILabel!
-    @IBOutlet weak var thumbsUp: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,20 +169,6 @@ class DetailsViewController: UIViewController {
     /// Handle press of delete button to delete birdcall.
     @IBAction func deleteBirdcall() {
         DataController.shared.delete(birdcall: birdcall)
-        
-        // From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
-        // https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
-        thumbsUp.isHidden = false
-        thumbsUp.alpha = 0
-        UIView.animate(withDuration: 0.25) {
-            self.thumbsUp.alpha = 1 // Fade in to show success.
-        } completion: { _ in
-            // Allow user to see success image for a period before closing screen.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                // From answer to "How to create a delay in Swift?" by Naresh:
-                // https://stackoverflow.com/questions/27517632/how-to-create-a-delay-in-swift
-                self.navigationController!.popViewController(animated: true)
-            }
-        }
+        self.navigationController!.popViewController(animated: true)
     }
 }

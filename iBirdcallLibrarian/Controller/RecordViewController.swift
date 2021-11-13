@@ -18,7 +18,6 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var onAir: UILabel!
     @IBOutlet weak var titleOfBirdcall: UILabel!
     @IBOutlet weak var dateAndTime: UILabel!
-    @IBOutlet weak var thumbsUp: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,23 +122,20 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
        
-    /// Handle press of stop button to end recording and save birdcall, closing screen after indicating success.
+    /// Handle press of stop button to end recording and save birdcall, closing screen after indicating OFF-AIR.
     @IBAction func stopButtonPressed() {
         stopRecording()
 
         // From answer to "Blocks on Swift (animateWithDuration:animations:completion:)" by Nicholas H:
         // https://stackoverflow.com/questions/24071334/blocks-on-swift-animatewithdurationanimationscompletion#24071442
         onAir.text = "OFF-AIR"
-        thumbsUp.isHidden = false
         onAir.alpha = 0
-        thumbsUp.alpha = 0
         UIView.animate(withDuration: 0.25) {
-            // Fade in to show success.
-            self.thumbsUp.alpha = 1
+            // Fade in OFF-AIR.
             self.onAir.alpha = 1
         } completion: { _ in
-            // Allow user to see success image for a period before closing screen.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            // Allow user to see OFF-AIR for a period before closing screen.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                 // From answer to "How to create a delay in Swift?" by Naresh:
                 // https://stackoverflow.com/questions/27517632/how-to-create-a-delay-in-swift
                 self.navigationController!.popViewController(animated: true)
