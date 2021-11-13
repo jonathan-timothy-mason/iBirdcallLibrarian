@@ -27,6 +27,7 @@ class BirdcallTableViewController: UIViewController, UITableViewDataSource, UITa
     func loadBirdcalls() {
         
         let fetchRequest = Birdcall.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         do {
             birdcalls = try DataController.shared.viewContext.fetch(fetchRequest)
             tableView.reloadData()
