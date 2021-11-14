@@ -51,7 +51,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iBirdcall Librarian" id="J1o-8l-DFq">
-                        <barButtonItem key="leftBarButtonItem" image="circle.fill" catalog="system" id="Z17-dS-4N8">
+                        <barButtonItem key="leftBarButtonItem" title="Record" image="circle.fill" catalog="system" id="Z17-dS-4N8">
                             <connections>
                                 <action selector="recordButtonPressed" destination="BYZ-38-t0r" id="2P5-LW-IH9"/>
                             </connections>
@@ -155,7 +155,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iBirdcall Librarian" id="X96-mI-nvK">
-                        <barButtonItem key="leftBarButtonItem" image="circle.fill" catalog="system" id="Goc-rV-1mS">
+                        <barButtonItem key="leftBarButtonItem" title="Record" image="circle.fill" catalog="system" id="Goc-rV-1mS">
                             <connections>
                                 <action selector="recordButtonPressed" destination="PbG-7B-skf" id="ifd-7t-092"/>
                             </connections>
@@ -267,8 +267,13 @@
                             <constraint firstItem="O5x-j5-tgB" firstAttribute="leading" secondItem="VFs-3F-Oqh" secondAttribute="leading" constant="20" id="zud-v8-gFd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Birdcall Details" id="KRW-pE-v9F">
-                        <barButtonItem key="rightBarButtonItem" image="trash.fill" catalog="system" id="91Z-LY-sib">
+                    <navigationItem key="navigationItem" title="Birdcall Details" leftItemsSupplementBackButton="YES" id="KRW-pE-v9F">
+                        <barButtonItem key="leftBarButtonItem" title="Play" image="play.fill" catalog="system" id="YWW-LV-iLI">
+                            <connections>
+                                <action selector="playBirdcall" destination="P5q-0T-O3y" id="vcM-mu-w3A"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Delete" image="trash.fill" catalog="system" id="91Z-LY-sib">
                             <connections>
                                 <action selector="deleteBirdcall" destination="P5q-0T-O3y" id="cnj-T0-C8X"/>
                             </connections>
