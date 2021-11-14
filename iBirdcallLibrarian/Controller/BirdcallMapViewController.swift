@@ -17,16 +17,6 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
     
     var birdcalls: [Birdcall] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // From answer to "iOS : Swift - How to add pinpoint to map on touch and get
-        // detailed address of that location?" by Peter Pohlmann:
-        //https://stackoverflow.com/questions/34431459/ios-swift-how-to-add-pinpoint-to-map-on-touch-and-get-detailed-address-of-th
-        let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
-        mapView.addGestureRecognizer(longTapGesture)
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -91,11 +81,7 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
         
         return pinView
     }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // ...
-    }
-    
+        
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // Handle press of callout to display details of selected birdcall.
         if control == view.rightCalloutAccessoryView {
@@ -111,23 +97,6 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         // Save map position and zoom level.
         MapState.saveRegion(mapRegion: mapView.region)
-    }
-    
-    /// Handle long press of map to add new travel location.
-    /// From answer to "iOS : Swift - How to add pinpoint to map on touch and get detailed
-    /// address of that location?" by Peter Pohlmann:
-    /// https://stackoverflow.com/questions/34431459/ios-swift-how-to-add-pinpoint-to-map-on-touch-and-get-detailed-address-of-th
-    /// - Parameter sender: Long press gesture recogniser.
-    @objc func longTap(sender: UILongPressGestureRecognizer){
-        if sender.state == .began {
-            // Get latitide and longitude of pressed point of map.
-            let locationInView = sender.location(in: mapView)
-            let locationOnMap = mapView.convert(locationInView, toCoordinateFrom: mapView)
-            
-          
-            
-            sender.state = .ended // Workaround to allow new long press straightaway.
-        }
     }
     
     /// Handle press of record button to show RecordViewController.
