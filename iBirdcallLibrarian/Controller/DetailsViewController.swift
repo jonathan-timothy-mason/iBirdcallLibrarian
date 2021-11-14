@@ -20,8 +20,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var titleOfBirdcall: UITextField!
     @IBOutlet weak var species: UITextField!
     @IBOutlet weak var notes: UITextField!
-    @IBOutlet weak var dateAndTime: UILabel!
-    @IBOutlet weak var latAndLong: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var latitude: UILabel!
+    @IBOutlet weak var longitude: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +39,12 @@ class DetailsViewController: UIViewController {
         titleOfBirdcall.text = birdcall.title
         species.text = birdcall.species
         notes.text = birdcall.notes
-        dateAndTime.text = birdcall.date?.formatted()
-        latAndLong.text = "Lat \(String(format: "%.2f", birdcall.latitude)), Long \(String(format: "%.2f", birdcall.longitude))" // From "Formatting numbers in Swift" by John Sundell: https://swiftbysundell.com/articles/formatting-numbers-in-swift/
+        date.text = birdcall.date?.formatted()
         
+        // From "Formatting numbers in Swift" by John Sundell: https://swiftbysundell.com/articles/formatting-numbers-in-swift/
+        latitude.text = "Lat \(String(format: "%.2f", birdcall.latitude))"
+        longitude.text = "Long \(String(format: "%.2f", birdcall.longitude))"
+                
         //  Load photo for birdcall from data store, if any, otherwise, Flickr.
         loadPhotoForBirdcall()
     }
