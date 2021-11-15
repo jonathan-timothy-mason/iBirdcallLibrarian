@@ -64,5 +64,12 @@ class BirdcallTableViewController: UIViewController, UITableViewDataSource, UITa
         recordViewController.hidesBottomBarWhenPushed = true // Prevent tabs showing in new screen.
         navigationController!.pushViewController(recordViewController, animated: true)
     }
+    
+    /// Handle press of settings button to show SettingsViewController.
+    @IBAction func settingsButtonPressed() {
+        let settingsViewController = self.storyboard!.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        settingsViewController.hidesBottomBarWhenPushed = true // Prevent tabs showing in new screen.
+        navigationController!.pushViewController(settingsViewController, animated: true)
+    }
 }
 

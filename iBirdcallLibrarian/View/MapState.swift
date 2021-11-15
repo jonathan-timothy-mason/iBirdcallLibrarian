@@ -7,7 +7,7 @@
 
 import MapKit
 
-/// Manages saving of map state to UserDefaults.
+/// Manages persistence of map state to UserDefaults.
 /// Based on the answer to question "Save Zoom level of Map" by Tran V:
 /// https://knowledge.udacity.com/questions/138741
 class MapState {

@@ -46,6 +46,11 @@ class DetailsViewController: UIViewController {
                 
         //  Load photo for birdcall from data store, if any, otherwise, Flickr.
         loadPhotoForBirdcall()
+        
+        // If set, auto-play birdcall.
+        if Settings.getAutoPlay() {
+            playBirdcall();
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

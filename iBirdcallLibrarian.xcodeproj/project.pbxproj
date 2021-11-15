@@ -22,6 +22,8 @@
 		AB097469271D7D6F005D9037 /* PhotoURLsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */; };
 		AB09746B271D823C005D9037 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746A271D823C005D9037 /* DetailsViewController.swift */; };
 		AB09746D271D8255005D9037 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09746C271D8255005D9037 /* RecordViewController.swift */; };
+		AB86C5AB27426ABC009CC6AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86C5AA27426ABC009CC6AD /* SettingsViewController.swift */; };
+		AB86C5AD27426DE7009CC6AD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86C5AC27426DE7009CC6AD /* Settings.swift */; };
 		AB8E7EA6273B0B0100365E02 /* BirdcallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E7EA5273B0B0100365E02 /* BirdcallTableViewController.swift */; };
 		AB8E7EA8273B23CC00365E02 /* BirdcallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E7EA7273B23CC00365E02 /* BirdcallCell.swift */; };
 		AB9085BE273986AA005D7ADD /* ControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9085BD273986AA005D7ADD /* ControllerHelpers.swift */; };
@@ -46,6 +48,8 @@
 		AB097466271D7D6F005D9037 /* PhotoURLsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoURLsResponse.swift; sourceTree = "<group>"; };
 		AB09746A271D823C005D9037 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		AB09746C271D8255005D9037 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		AB86C5AA27426ABC009CC6AD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AB86C5AC27426DE7009CC6AD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		AB8E7EA5273B0B0100365E02 /* BirdcallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdcallTableViewController.swift; sourceTree = "<group>"; };
 		AB8E7EA7273B23CC00365E02 /* BirdcallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdcallCell.swift; sourceTree = "<group>"; };
 		AB9085BD273986AA005D7ADD /* ControllerHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerHelpers.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				AB09745F271D7C2D005D9037 /* MapState.swift */,
+				AB86C5AC27426DE7009CC6AD /* Settings.swift */,
 				AB09745D271D7931005D9037 /* MKBirdcallAnnotation.swift */,
 			);
 			path = View;
@@ -124,6 +129,7 @@
 				AB09746C271D8255005D9037 /* RecordViewController.swift */,
 				AB9085BD273986AA005D7ADD /* ControllerHelpers.swift */,
 				AB8E7EA7273B23CC00365E02 /* BirdcallCell.swift */,
+				AB86C5AA27426ABC009CC6AD /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,12 +221,14 @@
 				AB097448271D69B2005D9037 /* BirdcallMapViewController.swift in Sources */,
 				AB09746D271D8255005D9037 /* RecordViewController.swift in Sources */,
 				AB09746B271D823C005D9037 /* DetailsViewController.swift in Sources */,
+				AB86C5AD27426DE7009CC6AD /* Settings.swift in Sources */,
 				AB8E7EA6273B0B0100365E02 /* BirdcallTableViewController.swift in Sources */,
 				AB097444271D69B2005D9037 /* AppDelegate.swift in Sources */,
 				AB097446271D69B2005D9037 /* SceneDelegate.swift in Sources */,
 				AB097469271D7D6F005D9037 /* PhotoURLsResponse.swift in Sources */,
 				AB8E7EA8273B23CC00365E02 /* BirdcallCell.swift in Sources */,
 				AB09745E271D7931005D9037 /* MKBirdcallAnnotation.swift in Sources */,
+				AB86C5AB27426ABC009CC6AD /* SettingsViewController.swift in Sources */,
 				ABED0D77272F3E3A00F3B971 /* BirdcallExtensions.swift in Sources */,
 				AB09745C271D6F15005D9037 /* Birdcalls.xcdatamodeld in Sources */,
 				AB097467271D7D6F005D9037 /* ErrorResponse.swift in Sources */,

@@ -56,11 +56,18 @@
                                 <action selector="recordButtonPressed" destination="BYZ-38-t0r" id="2P5-LW-IH9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Info" image="info.circle.fill" catalog="system" id="Ez2-iM-YYZ">
-                            <connections>
-                                <segue destination="Vuy-y9-4D5" kind="presentation" id="C4Y-cl-bTL"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Info" image="info.circle.fill" catalog="system" id="Ez2-iM-YYZ">
+                                <connections>
+                                    <segue destination="Vuy-y9-4D5" kind="presentation" id="C4Y-cl-bTL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Settings" image="gearshape.fill" catalog="system" id="VpC-vF-OVR">
+                                <connections>
+                                    <action selector="settingsButtonPressed" destination="BYZ-38-t0r" id="HaR-CO-9ml"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="GdP-7r-nvZ" id="P8k-2c-Fys"/>
@@ -165,11 +172,18 @@
                                 <action selector="recordButtonPressed" destination="PbG-7B-skf" id="ifd-7t-092"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Info" image="info.circle.fill" catalog="system" id="fwp-jM-jP6">
-                            <connections>
-                                <segue destination="Vuy-y9-4D5" kind="presentation" id="pAI-am-nHq"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Info" image="info.circle.fill" catalog="system" id="fwp-jM-jP6">
+                                <connections>
+                                    <segue destination="Vuy-y9-4D5" kind="presentation" id="pAI-am-nHq"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Settings" image="gearshape.fill" catalog="system" id="J7C-OX-jQE">
+                                <connections>
+                                    <action selector="settingsButtonPressed" destination="PbG-7B-skf" id="uZw-GJ-vqQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="j9A-vk-whD" id="KO4-pi-aLf"/>
@@ -187,22 +201,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWK-7K-j17">
-                                <rect key="frame" x="334" y="100" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Ht9-DZ-ZY4"/>
-                                    <constraint firstAttribute="height" constant="60" id="wHZ-D2-lDB"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="playBirdcall" destination="P5q-0T-O3y" eventType="touchUpInside" id="Sdc-3X-pvX"/>
-                                    <action selector="stopButtonPressed" destination="iuq-Uz-0jr" eventType="touchUpInside" id="b5g-2M-8EU"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Species" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rho-eI-Fb5">
                                 <rect key="frame" x="20" y="108" width="374" height="31.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,6 +222,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWK-7K-j17">
+                                <rect key="frame" x="334" y="100" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ht9-DZ-ZY4"/>
+                                    <constraint firstAttribute="height" constant="60" id="wHZ-D2-lDB"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="playBirdcall" destination="P5q-0T-O3y" eventType="touchUpInside" id="Sdc-3X-pvX"/>
+                                    <action selector="stopButtonPressed" destination="iuq-Uz-0jr" eventType="touchUpInside" id="b5g-2M-8EU"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P41-XC-1cC">
                                 <rect key="frame" x="20" y="827.5" width="204" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -364,7 +378,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGS-uk-kKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="442"/>
+            <point key="canvasLocation" x="1765" y="828"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="m9m-h8-Sfu">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="aEg-PH-FB5" customClass="SettingsViewController" customModule="iBirdcallLibrarian" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YLA-87-YYc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="Auto" translatesAutoresizingMaskIntoConstraints="NO" id="11s-V3-MwS">
+                                <rect key="frame" x="182.5" y="432.5" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto-play when displaying details." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D28-SR-Tlc">
+                                <rect key="frame" x="77" y="473.5" width="260" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hus-0l-wnp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="11s-V3-MwS" firstAttribute="centerX" secondItem="YLA-87-YYc" secondAttribute="centerX" id="6xv-83-ftm"/>
+                            <constraint firstItem="D28-SR-Tlc" firstAttribute="top" secondItem="11s-V3-MwS" secondAttribute="bottom" constant="10" id="M7b-l0-YjO"/>
+                            <constraint firstItem="D28-SR-Tlc" firstAttribute="centerX" secondItem="YLA-87-YYc" secondAttribute="centerX" id="OQC-pb-aAW"/>
+                            <constraint firstItem="11s-V3-MwS" firstAttribute="centerY" secondItem="YLA-87-YYc" secondAttribute="centerY" id="d8p-Ho-ugF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lea-2Q-NK2"/>
+                    <connections>
+                        <outlet property="autoPlay" destination="11s-V3-MwS" id="N94-wh-k6M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PiF-eT-Jl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1765" y="82"/>
         </scene>
         <!--NOW Recording...-->
         <scene sceneID="RuF-SK-eST">
@@ -541,11 +591,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pAI-am-nHq"/>
+        <segue reference="C4Y-cl-bTL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="doc.text.image" catalog="system" width="115" height="128"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="map" catalog="system" width="128" height="110"/>
