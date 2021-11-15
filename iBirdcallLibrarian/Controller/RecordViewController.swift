@@ -95,8 +95,12 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         manager.stopUpdatingLocation()
         
         // Record current location in birdcall.
-        birdcall.latitude = location.coordinate.latitude + Double.random(in: -10...10)
-        birdcall.longitude = location.coordinate.longitude + Double.random(in: -10...10)
+        birdcall.latitude = location.coordinate.latitude
+        birdcall.longitude = location.coordinate.longitude
+        
+        // Adjust randomly when using same loaction for testing.
+        //birdcall.latitude += Double.random(in: -10...10)
+        //birdcall.longitude += Double.random(in: -10...10)
     }
     
     /// Record audio.
