@@ -1,4 +1,5 @@
-# iBirdcall Librarian *by Jonathan Mason for You Decide!, iOS Developer Nanodegree*
+# iBirdcall Librarian
+### *By Jonathan Mason for Project: You Decide!, iOS Developer Nanodegree.*
 
 Allows the birdwatcher to record birdcalls in the field, for later identification.
 
@@ -16,7 +17,7 @@ It should be possible to build and run the app using the code as it is.
 
 ## Development Tools
 
-iBirdcall Librarian was debveloped using:
+iBirdcall Librarian was developed using:
 
 - XCode 13.1
 - Swift 5
