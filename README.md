@@ -42,7 +42,7 @@ The Main screen is the first screen to be shown and can be toggled between Map a
 
 ### Map Mode
 
-Map mode shows a map of the current location. A past recording is represented as a pin. The map can be zoomed and moved in the usual way. Changes to map zoom level and position are automatically persisted.
+Map mode shows a map of the current or last viewed location. A past recording is represented as a pin. The map can be zoomed and moved in the usual way. Changes to map zoom level and position are automatically persisted.
 
 *Record*: There are 2 round Record buttons, a large red one to the top-right of the screen and a smaller one in the top-left of the navigation bar. Pressing either of these will show the Record screen and immediately begin recording.
 
@@ -68,13 +68,13 @@ List mode shows a list of past recordings, newest first. A past recording is rep
 
 When shown, the Record screen immediately begins recording, which is indicated by a flashing red, ON-AIR indicator. Date, time and location are also automatically captured. A default title is shown along with the captured date and time.
 
-*Stop*: There are 2 square Stop buttons, a large black one to the bottom-right of the screen and a smaller one in the top-left of the navigation bar. Pressing either of these will stop the recording. The flashing red ON-AIR indicator changes to OFF-AIR to indicate the recording has been stopped. The screen is automatically saved and the screen closed, returning to the main screen. The main screen shows the newly recorded birdcall, either at its location on the map or at the top of the list.
+*Stop*: There are 2 square Stop buttons, a large black one to the bottom-right of the screen and a smaller one in the top-left of the navigation bar. Pressing either of these will stop the recording. The flashing red ON-AIR indicator changes to OFF-AIR to indicate the recording has been stopped. The recording is automatically saved and the screen closed, returning to the main screen. The main screen shows the newly recorded birdcall, either at its location on the map or at the top of the list.
 
 ## Details Screen
 
 The details screen shows the details of the birdcall.
 
-*Species*: Enter or edit speicies, if known, e.g. Coot, Kestrel, Wren. As soon as editing finishes, a corresponding image is downloaded from the internet. To change, simply tap the image.
+*Species*: Enter or edit speicies, if known, e.g. Coot, Kestrel, Wren. As soon as editing finishes, a corresponding image is downloaded from the internet.
 
 *Title*: Edit title. A default title is automatically generated at the time of recording based upon the time of day, i.e. morning, afternoon, evening or night.
 
@@ -84,11 +84,11 @@ The details screen shows the details of the birdcall.
 
 *Date and time*: Date and time of birdcall; cannot be edited.
 
-*Image*: Image corresponding to species, if entered; downloaded from the internet. To change, simply tap the image.
+*Image*: Image corresponding to species, if entered; downloaded from the internet. To change, for whatever reason, simply tap the image.
 
 *Play*: There are 2 triangular Play buttons, a large green one to the top-right of the screen and a smaller one in the top-left of the navigation bar. Press either of these to play the recording of the birdcall. The birdcall can also be set to automatically play as the Details screen is shown by enabling the Auto-Play setting. See the Settings screen.
 
-*Delete*: Press to delete the birdcall, which also automatically closes the screen.
+*Delete*: Press this button to delete the birdcall, which also automatically closes the screen.
 
 ## Settings Screen
 
