@@ -21,7 +21,7 @@ class DataController {
     }
            
     /// Load data store.
-    func load() {
+    func loadDataStore() {
         persistentContainer.loadPersistentStores { description, error in
             guard error == nil else {
                 fatalError(error!.localizedDescription)
@@ -29,8 +29,8 @@ class DataController {
         }
     }
     
-    /// Save data store, logging any error.
-    func save() {
+    /// Save data store.
+    func saveDataStore() {
         do {
             try viewContext.save()
         }
@@ -39,12 +39,25 @@ class DataController {
         }
     }
     
+    /// Load birdcalls from data store.
+    func loadBirdcalls() -> [Birdcall] {
+        
+        let fetchRequest = Birdcall.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        do {
+            return try viewContext.fetch(fetchRequest)
+        }
+        catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+    
     /// Delete birdcall from data store and its audio file from file system.
-    func delete(birdcall: Birdcall ) {
+    func deleteBirdcall(birdcall: Birdcall ) {
         do {
             try FileManager.default.removeItem(atPath: birdcall.audioFilenameURL.path)
             viewContext.delete(birdcall)
-            save()
+            saveDataStore()
         }
         catch {
             print("The following error occurred whilst attempting to delete birdcall \(error.localizedDescription)")

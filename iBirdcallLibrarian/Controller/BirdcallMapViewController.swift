@@ -25,22 +25,11 @@ class BirdcallMapViewController: UIViewController, MKMapViewDelegate {
             mapView.region = region
         }
         
-        // Load birdcalls from data store and populate map.
-        loadBirdcalls()
-    }
-    
-    /// Load birdcalls from data store and populate map.
-    func loadBirdcalls() {
+        // Load birdcalls from data store.
+        birdcalls = DataController.shared.loadBirdcalls()
         
-        let fetchRequest = Birdcall.fetchRequest()
-        do {
-            birdcalls = try DataController.shared.viewContext.fetch(fetchRequest)
-        }
-        catch {
-            fatalError(error.localizedDescription)
-        }
-        
-        generateAnnotations();
+        // Generate map annotations for birdcalls.
+        generateAnnotations()
     }
     
     /// Generate map annotations for birdcalls.

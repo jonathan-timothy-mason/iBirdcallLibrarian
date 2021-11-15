@@ -157,6 +157,6 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         try! audioSession.setActive(false)
         
         // Save to data store.
-        DataController.shared.save()
+        DataController.shared.saveDataStore()
     }
 }

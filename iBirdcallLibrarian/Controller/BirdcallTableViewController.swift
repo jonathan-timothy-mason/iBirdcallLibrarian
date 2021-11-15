@@ -19,22 +19,11 @@ class BirdcallTableViewController: UIViewController, UITableViewDataSource, UITa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Load birdcalls from data store and populate table.
-        loadBirdcalls()
-    }
-    
-    /// Load birdcalls from data store and populate table.
-    func loadBirdcalls() {
+        // Load birdcalls from data store.
+        birdcalls = DataController.shared.loadBirdcalls()
         
-        let fetchRequest = Birdcall.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        do {
-            birdcalls = try DataController.shared.viewContext.fetch(fetchRequest)
-            tableView.reloadData()
-        }
-        catch {
-            fatalError(error.localizedDescription)
-        }
+        // Populate table.
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

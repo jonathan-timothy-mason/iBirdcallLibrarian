@@ -24,7 +24,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var latitude: UILabel!
     @IBOutlet weak var longitude: UILabel!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +53,7 @@ class DetailsViewController: UIViewController {
         birdcall.title = titleOfBirdcall.text
         birdcall.species = species.text
         birdcall.notes = notes.text
-        DataController.shared.save()
+        DataController.shared.saveDataStore()
     }
     
     /// Load photo for birdcall from data store, if any, otherwise, Flickr.
@@ -113,7 +112,7 @@ class DetailsViewController: UIViewController {
                     if let photo = photo {
                         self.image.image = photo // Set image of image view...
                         self.birdcall.photo = photo.pngData() // ...and data store.
-                        DataController.shared.save()
+                        DataController.shared.saveDataStore()
                     }
                 }
             }
@@ -173,7 +172,7 @@ class DetailsViewController: UIViewController {
     
     /// Handle press of delete button to delete birdcall.
     @IBAction func deleteBirdcall() {
-        DataController.shared.delete(birdcall: birdcall)
+        DataController.shared.deleteBirdcall(birdcall: birdcall)
         self.navigationController!.popViewController(animated: true)
     }
 }

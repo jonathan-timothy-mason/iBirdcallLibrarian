@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Load data store.
-        DataController.shared.load()
+        DataController.shared.loadDataStore()
         
         return true
     }
