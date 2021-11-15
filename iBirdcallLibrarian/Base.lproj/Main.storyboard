@@ -325,8 +325,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" red="0.44705882352941173" green="0.78431372549019607" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original icon created by Freepik, www.flaticon.com." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxj-pV-O3J">
-                                <rect key="frame" x="20" y="728" width="374" height="60"/>
+                            <view alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJe-FB-hwq" userLabel="Scrim">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iBirdcall Librarian © 2021 Jonathan Mason" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxj-pV-O3J">
+                                <rect key="frame" x="20" y="767.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original icon created by Freepik, www.flaticon.com." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPW-GM-fPq">
+                                <rect key="frame" x="20" y="20" width="374" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -336,12 +346,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Mn3-5C-KV8" firstAttribute="trailing" secondItem="hxj-pV-O3J" secondAttribute="trailing" constant="20" id="2fa-hR-IGU"/>
+                            <constraint firstItem="bJe-FB-hwq" firstAttribute="top" secondItem="Mn3-5C-KV8" secondAttribute="top" id="6MG-s2-wUt"/>
+                            <constraint firstItem="Mn3-5C-KV8" firstAttribute="trailing" secondItem="nPW-GM-fPq" secondAttribute="trailing" constant="20" id="8uf-oi-EUI"/>
                             <constraint firstItem="a74-dd-XRi" firstAttribute="leading" secondItem="Mn3-5C-KV8" secondAttribute="leading" id="Esr-o8-zo4"/>
+                            <constraint firstItem="Mn3-5C-KV8" firstAttribute="trailing" secondItem="bJe-FB-hwq" secondAttribute="trailing" id="LEM-UF-nxd"/>
                             <constraint firstItem="hxj-pV-O3J" firstAttribute="leading" secondItem="Mn3-5C-KV8" secondAttribute="leading" constant="20" id="LqL-Ng-S7r"/>
                             <constraint firstItem="Mn3-5C-KV8" firstAttribute="bottom" secondItem="a74-dd-XRi" secondAttribute="bottom" id="OAD-gg-p3v"/>
                             <constraint firstItem="a74-dd-XRi" firstAttribute="top" secondItem="Mn3-5C-KV8" secondAttribute="top" id="OQ1-NX-ZEi"/>
                             <constraint firstItem="Mn3-5C-KV8" firstAttribute="trailing" secondItem="a74-dd-XRi" secondAttribute="trailing" id="dWa-lR-zWv"/>
+                            <constraint firstItem="nPW-GM-fPq" firstAttribute="leading" secondItem="Mn3-5C-KV8" secondAttribute="leading" constant="20" id="kEs-dU-wsg"/>
+                            <constraint firstItem="bJe-FB-hwq" firstAttribute="leading" secondItem="Mn3-5C-KV8" secondAttribute="leading" id="n6w-z1-jkh"/>
                             <constraint firstItem="Mn3-5C-KV8" firstAttribute="bottom" secondItem="hxj-pV-O3J" secondAttribute="bottom" constant="20" id="sBP-1Z-ECJ"/>
+                            <constraint firstItem="nPW-GM-fPq" firstAttribute="top" secondItem="Mn3-5C-KV8" secondAttribute="top" constant="20" id="scq-vP-Jxw"/>
+                            <constraint firstItem="Mn3-5C-KV8" firstAttribute="bottom" secondItem="bJe-FB-hwq" secondAttribute="bottom" id="xve-aI-Nol"/>
                         </constraints>
                     </view>
                 </viewController>
