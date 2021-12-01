@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To capture location when recording birdcall.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To record birdcall.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
